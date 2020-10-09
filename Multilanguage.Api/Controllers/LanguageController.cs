@@ -38,8 +38,6 @@ namespace Multilanguage.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<string>> Get(string text)
         {
-            var test = Response;
-            var tes2t = Request;
             var message = await _stringLocalizerService.Get(text);
             return message.Value;
         }
