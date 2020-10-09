@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Multilanguage.Application;
 using Multilanguage.Infrastructure;
+using System.Globalization;
 
 namespace Multilanguage.Api
 {
@@ -35,7 +36,8 @@ namespace Multilanguage.Api
                 options.RequestCultureProviders.Clear();
                 options.RequestCultureProviders.Add(new CookieRequestCultureProvider() { CookieName = CookieRequestCultureProvider.DefaultCookieName});
                 options.SetDefaultCulture("en-GB");
-                options.AddSupportedCultures("ro-RO", "ru-RU", "es-ES");
+                options.SupportedCultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
+                options.SupportedUICultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
             });
 
             app.UseSwagger();
