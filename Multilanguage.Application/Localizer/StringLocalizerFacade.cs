@@ -6,7 +6,7 @@ using Multilanguage.Domain.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace Multilanguage.Infrastructure.Localizer
+namespace Multilanguage.Application.Localizer
 {
     public class StringLocalizerFacade : IStringLocalizerFacade
     {

@@ -3,7 +3,7 @@ using Multilanguage.Application.Abstract;
 using System.Globalization;
 using System.Threading.Tasks;
 
-namespace Multilanguage.Infrastructure.Localizer
+namespace Multilanguage.Application.Localizer
 {
     public class StringLocalizerService : IStringLocalizerService
     {

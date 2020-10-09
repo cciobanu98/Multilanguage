@@ -10,9 +10,8 @@ namespace Multilanguage.Infrastructure.Data
     {
         public MultilanguageDbContext CreateDbContext(string[] args)
         {
-            string applicationSettingsFullPath = Path.Combine(Directory.GetCurrentDirectory(), @"../Multilanguage");
+            string applicationSettingsFullPath = Path.Combine(Directory.GetCurrentDirectory(), @"../Multilanguage.Api");
 
-            //TODO: add env variables
             IConfiguration config = new ConfigurationBuilder()
                 .SetBasePath(applicationSettingsFullPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)

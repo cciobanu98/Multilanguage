@@ -3,8 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Multilanguage.Application.Abstract;
+using Multilanguage.Infrastructure.Azure;
 using Multilanguage.Infrastructure.Data;
-using Multilanguage.Infrastructure.Localizer;
 using Multilanguage.Infrastructure.Options;
 
 namespace Multilanguage.Infrastructure
@@ -13,10 +13,9 @@ namespace Multilanguage.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddCognitiveSeriviceOptions(configuration);
             services.AddMultilanguageOptions();
             services.AddMultilanguageDbContext();
-            services.AddLocalization();
+            services.AddAzureCognitiveService(configuration);
             return services;
         }
 
@@ -41,17 +40,10 @@ namespace Multilanguage.Infrastructure
                 });
             return services;
         }
-
-        public static IServiceCollection AddCognitiveSeriviceOptions(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddAzureCognitiveService(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<CognitiveServiceOptions>(configuration.GetSection("AzureCognitive"));
-            return services;
-        }
-        public static IServiceCollection AddLocalization(this IServiceCollection services)
-        {
             services.AddScoped<IStringLocalizerCogniteveService, StringLocalizerCognitiveService>();
-            services.AddScoped<IStringLocalizerFacade, StringLocalizerFacade>();
-            services.AddScoped<IStringLocalizerService, StringLocalizerService>();
             return services;
         }
     }

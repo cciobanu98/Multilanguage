@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Multilanguage.Infrastructure.Localizer
+namespace Multilanguage.Infrastructure.Azure
 {
     public class StringLocalizerCognitiveService : IStringLocalizerCogniteveService
     {

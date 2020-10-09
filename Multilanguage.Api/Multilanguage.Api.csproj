@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>b31f021e-01eb-4043-8c1c-b01e311928a0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Multilanguage.Application\Multilanguage.Application.csproj" />
+    <ProjectReference Include="..\Multilanguage.Domain\Multilanguage.Domain.csproj" />
+    <ProjectReference Include="..\Multilanguage.Infrastructure\Multilanguage.Infrastructure.csproj" />
+  </ItemGroup>
+
+
+</Project>
