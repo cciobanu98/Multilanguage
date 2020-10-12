@@ -24,7 +24,7 @@ namespace Multilanguage.Api
             services.AddMemoryCache();
             services.AddHttpClient();
             services.AddInfrastructure(Configuration);
-            services.AddApplication();
+            services.AddApplication(Configuration);
             services.AddControllers();
             services.AddSwaggerGen();
         }
