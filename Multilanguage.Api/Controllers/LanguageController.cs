@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Multilanguage.Application.Abstract;
+using Multilanguage.Application.Extensions;
 using Multilanguage.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -36,10 +38,11 @@ namespace Multilanguage.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<string>> Get(string text)
+        public async Task<ActionResult<IEnumerable<string>>> Get(string text)
         {
-            var message = await _stringLocalizerService.Get(text);
-            return message.Value;
+            var error = await _stringLocalizerService.GetError(text); //Error message will be translated because it's dont't need to be verified
+            var ui = await _stringLocalizerService.GetUI(text); //UI message need to be verified.
+            return new List<string>() { error.Value, ui.Value };
         }
     }
 }

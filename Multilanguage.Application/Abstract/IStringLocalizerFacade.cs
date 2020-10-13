@@ -1,13 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using Multilanguage.Domain.Models;
+using System.Threading.Tasks;
 
 namespace Multilanguage.Application.Abstract
 {
     public interface IStringLocalizerFacade
     {
-        Task<string> Get(string key, string langCode);
+        Task<string> Get(string key, string langCode, TranslationType type);
 
-        Task Remove(string key, string langCode);
+        Task Remove(string key, string langCode, TranslationType type);
 
-        Task Set(string key, string value, string langCode);
+        Task<Translation> Set(string key, string value, string langCode, TranslationType type);
     }
 }
